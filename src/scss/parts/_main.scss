@@ -1,0 +1,67 @@
+.main {
+  flex: 1 0 auto;
+}
+
+#to-do-list {
+  list-style-type: none;
+}
+
+.to-do-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+  transition: all 0.3s;
+
+  &.delete {
+    height: 0;
+    min-height: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  &.checked {
+    .check-button {
+      border: 1px solid rgb(93, 194, 175);
+      i {
+        opacity: 1;
+      }
+    }
+
+    .value {
+      text-decoration: line-through;
+      opacity: 0.6;
+    }
+  }
+
+  .check-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgb(230, 230, 230);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+
+    i {
+      font-size: 20px;
+      color: rgb(93, 194, 175);
+      opacity: 0;
+      transition: all 0.3s;
+    }
+  }
+
+  .value {
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 20px;
+    font-family: $main-font;
+    transition: 0.3s;
+  }
+
+  .delete-button {
+    font-size: 25px;
+    color: $red;
+  }
+}
