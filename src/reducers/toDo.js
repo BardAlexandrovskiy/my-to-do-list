@@ -1,6 +1,6 @@
 import { ADD_NEW_TASK, DELETE_TASK, TOGGLE_TASK } from '../actions/toDo';
 
-const initialState = {
+const initialState = JSON.parse(localStorage.getItem('my-to-do-list')).toDo || {
   list: [],
 };
 

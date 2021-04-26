@@ -5,12 +5,14 @@ import createToDoItem from './components/toDoItem';
 // Create new task
 const addNewTaskInput = document.getElementById('add-new-task-input');
 const addNewTaskButton = document.getElementById('add-new-task-button');
+const tasksWrapper = document.querySelector('.to-do-list-wrapper');
 
 const addNewTask = () => {
   if (addNewTaskInput.value.trim()) {
     store.dispatch(addNewTaskAction(addNewTaskInput.value));
     addNewTaskInput.value = '';
     addNewTaskInput.blur();
+    tasksWrapper.scrollTop = tasksWrapper.scrollHeight;
   }
 };
 
@@ -51,6 +53,9 @@ const render = () => {
   list.forEach((taskObject) => {
     createToDoItem(taskObject);
   });
+
+  // localStorage update
+  localStorage.setItem('my-to-do-list', JSON.stringify(store.getState()));
 };
 
 store.subscribe(render);
