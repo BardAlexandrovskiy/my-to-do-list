@@ -35,6 +35,13 @@ const render = () => {
   const toDoListEl = document.getElementById('to-do-list');
   const searchWrapperEl = document.getElementById('search-wrapper');
 
+  // Search
+  if (!list.length) {
+    searchWrapperEl.classList.add('hide');
+  } else {
+    searchWrapperEl.classList.remove('hide');
+  }
+
   // Delete old tasks
   while (toDoListEl.firstChild) {
     toDoListEl.removeChild(toDoListEl.firstChild);
@@ -44,13 +51,6 @@ const render = () => {
   list.forEach((taskObject) => {
     createToDoItem(taskObject);
   });
-
-  // Search
-  if (!list.length) {
-    searchWrapperEl.classList.add('hide');
-  } else {
-    searchWrapperEl.classList.remove('hide');
-  }
 };
 
 store.subscribe(render);

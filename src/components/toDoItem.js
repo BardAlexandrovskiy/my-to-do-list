@@ -1,5 +1,4 @@
 import { deleteTaskAction, toggleTaskAction } from '../actions/toDo';
-import { toggleLockScreen } from '../functions';
 import store from '../store';
 
 const createToDoItem = (taskObject) => {
@@ -36,27 +35,14 @@ const createToDoItem = (taskObject) => {
   deleteButton.appendChild(deleteButtonIcon);
   task.appendChild(deleteButton);
 
-  // Functions
-  const toggleItem = () => {
-    toggleLockScreen();
-    task.classList.toggle('checked');
-    checkButton.addEventListener('transitionend', () => {
-      store.dispatch(toggleTaskAction(id));
-      toggleLockScreen();
-    });
-  };
-  const deleteItem = () => {
-    toggleLockScreen();
-    task.classList.add('delete');
-    task.addEventListener('transitionend', () => {
-      store.dispatch(deleteTaskAction(id));
-      toggleLockScreen();
-    });
-  };
-
   // Events
-  checkButton.addEventListener('click', toggleItem);
-  deleteButton.addEventListener('click', deleteItem);
+  checkButton.addEventListener('click', () => {
+    store.dispatch(toggleTaskAction(id));
+  });
+
+  deleteButton.addEventListener('click', () => {
+    store.dispatch(deleteTaskAction(id));
+  });
 };
 
 export default createToDoItem;
