@@ -6,7 +6,7 @@ import {
   TOGGLE_TASK,
 } from '../actions/toDo';
 
-const initialState = JSON.parse(localStorage.getItem('my-to-do-list')).toDo || {
+const initialState = JSON.parse(localStorage.getItem('my-to-do-list')) || {
   list: [],
   filter: 'all',
   searchValue: '',

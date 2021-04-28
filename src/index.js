@@ -83,8 +83,8 @@ const render = () => {
       const escapeRegExp = (string) => {
         return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       };
-      const newValue = escapeRegExp(searchValue);
-      const regExp = new RegExp(newValue, 'gi');
+      const newSearchValue = escapeRegExp(searchValue);
+      const regExp = new RegExp(newSearchValue, 'gi');
 
       if (regExp.test(taskObject.value)) {
         const newTaskValue = taskObject.value.replace(
@@ -138,7 +138,7 @@ const render = () => {
   searchInput.value = searchValue;
 
   // localStorage update
-  localStorage.setItem('my-to-do-list', JSON.stringify(store.getState()));
+  localStorage.setItem('my-to-do-list', JSON.stringify(store.getState().toDo));
 };
 
 store.subscribe(render);
