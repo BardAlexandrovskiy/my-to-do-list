@@ -59,17 +59,15 @@ clearSearchInput.addEventListener('click', () => {
 
 // Elements update
 const render = () => {
-  // Store
+  // Get store
   const {
     toDo: { list, filter, searchValue },
   } = store.getState();
 
-  // Variable elements
-  const toDoListEl = document.getElementById('to-do-list');
+  // Toggle show elements
   const searchWrapperEl = document.getElementById('search-wrapper');
   const filtersWrapperEl = document.getElementById('filters-wrapper');
 
-  // Toggle show elements
   if (list.length) {
     searchWrapperEl.classList.toggle('show', true);
     filtersWrapperEl.classList.toggle('show', true);
@@ -79,6 +77,8 @@ const render = () => {
   }
 
   // Delete old tasks
+  const toDoListEl = document.getElementById('to-do-list');
+
   while (toDoListEl.firstChild) {
     toDoListEl.removeChild(toDoListEl.firstChild);
   }
