@@ -1,1 +1,1 @@
-My to do list created in Vanilla Js with Redux
+My to do list created in Vanilla JS with Redux

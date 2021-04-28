@@ -18,28 +18,57 @@
   padding-top: 10px;
   padding-bottom: 10px;
   transition: all 0.3s;
+  opacity: 0;
+  transform: translateX(-100%);
 
-  &.hide {
-    opacity: 0;
-    transform: translateX(-100%);
+  &.show {
+    opacity: 1;
+    transform: translateX(0);
   }
 
-  input {
-    width: 100%;
-    padding: 15px 20px;
-    font-size: 20px;
-    border-radius: 50px;
-    font-family: $main-font;
+  .input-wrapper {
+    position: relative;
+
+    .clear-input {
+      right: 0;
+      width: 45px;
+      padding-left: 5px;
+      bottom: 0;
+      height: 100%;
+      position: absolute;
+      justify-content: flex-start;
+      align-items: center;
+      display: none;
+
+      &.show {
+        display: flex;
+      }
+
+      i {
+        font-size: 20px;
+        color: $dark-grey;
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 15px 45px 15px 20px;
+      font-size: 20px;
+      border-radius: 50px;
+      font-family: $main-font;
+    }
   }
 }
 
 .filters-wrapper {
   background-color: $light-grey;
   transition: all 0.3s;
+  opacity: 0;
+  transform: translateX(100%);
 
-  &.hide {
-    opacity: 0;
-    transform: translateX(100%);
+  &.show {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .container {

@@ -47,8 +47,14 @@ filterCompletedButton.addEventListener('click', () => {
 
 // Set search value
 const searchInput = document.getElementById('search-input');
+const clearSearchInput = document.getElementById('clear-search-input-button');
+
 searchInput.addEventListener('input', (e) => {
   store.dispatch(setSearchValue(e.target.value));
+});
+
+clearSearchInput.addEventListener('click', () => {
+  store.dispatch(setSearchValue(''));
 });
 
 // Elements update
@@ -63,13 +69,13 @@ const render = () => {
   const searchWrapperEl = document.getElementById('search-wrapper');
   const filtersWrapperEl = document.getElementById('filters-wrapper');
 
-  // Hide elements
-  if (!list.length) {
-    searchWrapperEl.classList.add('hide');
-    filtersWrapperEl.classList.add('hide');
+  // Toggle show elements
+  if (list.length) {
+    searchWrapperEl.classList.toggle('show', true);
+    filtersWrapperEl.classList.toggle('show', true);
   } else {
-    searchWrapperEl.classList.remove('hide');
-    filtersWrapperEl.classList.remove('hide');
+    searchWrapperEl.classList.toggle('show', false);
+    filtersWrapperEl.classList.toggle('show', false);
   }
 
   // Delete old tasks
@@ -134,6 +140,13 @@ const render = () => {
 
   // Update search input value
   const searchInput = document.getElementById('search-input');
+  const clearSearchInput = document.getElementById('clear-search-input-button');
+
+  if (searchValue) {
+    clearSearchInput.classList.toggle('show', true);
+  } else {
+    clearSearchInput.classList.toggle('show', false);
+  }
 
   searchInput.value = searchValue;
 
