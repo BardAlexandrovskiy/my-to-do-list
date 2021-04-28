@@ -1,28 +1,9 @@
 .main {
-  height: calc(100% - 124px);
+  height: calc(100% - 250px);
 
   .to-do-list-wrapper {
     overflow-y: auto;
-    max-height: calc(100% - 74px);
-  }
-}
-
-.search-wrapper {
-  background-color: $light-pink;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  transition: all 0.3s;
-
-  &.hide {
-    opacity: 0;
-  }
-
-  input {
-    width: 100%;
-    padding: 15px 20px;
-    font-size: 20px;
-    border-radius: 50px;
-    font-family: $main-font;
+    height: 100%;
   }
 }
 
@@ -74,6 +55,10 @@
     font-size: 20px;
     font-family: $main-font;
     word-break: break-all;
+
+    span {
+      background-color: lightyellow;
+    }
   }
 
   .delete-button {

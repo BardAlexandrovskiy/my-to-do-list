@@ -1,7 +1,15 @@
-import { ADD_NEW_TASK, DELETE_TASK, TOGGLE_TASK } from '../actions/toDo';
+import {
+  ADD_NEW_TASK,
+  CHANGE_FILTER,
+  DELETE_TASK,
+  SET_SEARCH_VALUE,
+  TOGGLE_TASK,
+} from '../actions/toDo';
 
 const initialState = JSON.parse(localStorage.getItem('my-to-do-list')).toDo || {
   list: [],
+  filter: 'all',
+  searchValue: '',
 };
 
 export function toDoReducer(state = initialState, action) {
@@ -29,6 +37,10 @@ export function toDoReducer(state = initialState, action) {
       };
     case DELETE_TASK:
       return { ...state, list: list.filter(({ id }) => id != payload.id) };
+    case CHANGE_FILTER:
+      return { ...state, filter: payload.filter };
+    case SET_SEARCH_VALUE:
+      return { ...state, searchValue: payload.value };
     default:
       return state;
   }

@@ -23,7 +23,7 @@ const createToDoItem = (taskObject) => {
   // Create value container
   const valueContainer = document.createElement('div');
   valueContainer.className = 'value';
-  valueContainer.textContent = value;
+  valueContainer.innerHTML = value;
   task.appendChild(valueContainer);
 
   // Create delete button

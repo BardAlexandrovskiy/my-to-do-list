@@ -11,13 +11,26 @@
     <div id="root">
       <header class="header">
         <div class="title">To do list</div>
-      </header>
-      <div class="main">
         <div class="search-wrapper" id='search-wrapper'>
           <div class="container">
             <input type="text" id="search-input" placeholder="Search" />
           </div>
         </div>
+        <div class="filters-wrapper" id='filters-wrapper'>
+          <div class="container">
+            <button class="button filter-button all" id="filter-all-button">
+              All
+            </button>
+            <button class="button filter-button active" id="filter-active-button">
+              Active
+            </button>
+            <button class="button filter-button completed" id="filter-completed-button">
+              Completed
+            </button>
+          </div>
+        </div>
+      </header>
+      <div class="main">
         <div class="to-do-list-wrapper">
           <div class="container">
             <ul id='to-do-list'>

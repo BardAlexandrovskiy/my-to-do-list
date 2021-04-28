@@ -39,6 +39,16 @@ body {
   margin: 0 auto;
 }
 
+button {
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 // Import fonts
 @import './awesome-fonts/fontawesome.scss';
 @import './awesome-fonts/solid.scss';
