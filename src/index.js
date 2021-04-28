@@ -80,7 +80,11 @@ const render = () => {
   // Render tasks
   const searchFilter = (taskObject) => {
     if (searchValue) {
-      const regExp = new RegExp('\\' + searchValue, 'gi');
+      const escapeRegExp = (string) => {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      };
+      const newValue = escapeRegExp(searchValue);
+      const regExp = new RegExp(newValue, 'gi');
 
       if (regExp.test(taskObject.value)) {
         const newTaskValue = taskObject.value.replace(

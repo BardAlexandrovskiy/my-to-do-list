@@ -1,4 +1,6 @@
 .header {
+  overflow: hidden;
+
   .title {
     font-family: $main-font;
     font-size: 40px;
@@ -19,6 +21,7 @@
 
   &.hide {
     opacity: 0;
+    transform: translateX(-100%);
   }
 
   input {
@@ -36,6 +39,7 @@
 
   &.hide {
     opacity: 0;
+    transform: translateX(100%);
   }
 
   .container {
